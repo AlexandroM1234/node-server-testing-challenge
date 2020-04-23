@@ -24,3 +24,22 @@ describe("testing Post endpoint", () => {
       });
   });
 });
+
+describe("testing delete endpoint", () => {
+  test("should return 200 status", () => {
+    return request(server)
+      .delete("/api/people/:id")
+      .send({ id: 1 })
+      .then((res) => {
+        expect(res.status).toBe(200);
+      });
+  });
+  test("should return the delete message", () => {
+    return request(server)
+      .delete("/api/people/:id")
+      .send({ id: 1 })
+      .then((res) => {
+        expect(res.body.message).toBe("person has been removed");
+      });
+  });
+});

@@ -28,7 +28,7 @@ router.delete("/:id", (req, res) => {
   const { id } = req.params;
   People.removePerson({ id })
     .then((person) => {
-      res.status(200).json({ message: " person has been removed" });
+      res.status(200).json({ message: "person has been removed" });
     })
     .catch((err) => {
       console.log("you messed up removing a person", err);
