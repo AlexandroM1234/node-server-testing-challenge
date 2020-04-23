@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
   const newPerson = req.body;
   People.addPerson(newPerson)
     .then((person) => {
-      res.status(201).json(person);
+      res.status(201).json(req.body);
     })
     .catch((err) => {
       console.log("you messed up adding a person", err);
